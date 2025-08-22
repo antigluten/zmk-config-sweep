@@ -26,6 +26,12 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
+
+        tgf: toggle_layer_flip {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            toggle-mode = "flip";
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -73,12 +79,12 @@
             bindings = <
 &sys_reset   &trans  &trans  &trans      &bt BT_SEL 0    &trans            &kp C_BRIGHTNESS_DEC  &kp C_BRI_UP     &trans  &sys_reset
 &bootloader  &trans  &trans  &trans      &bt BT_SEL 1    &kp K_MUTE        &kp C_VOLUME_DOWN     &kp C_VOLUME_UP  &trans  &bootloader
-&to 0        &to 5   &trans  &bt BT_CLR  &bt BT_SEL 2    &trans            &kp C_PREV            &kp C_NEXT       &trans  &trans
+&tgf 5       &trans  &trans  &bt BT_CLR  &bt BT_SEL 2    &trans            &kp C_PREV            &kp C_NEXT       &trans  &trans
                              &trans      &trans          &kp C_PLAY_PAUSE  &trans
             >;
         };
 
-        GAME {
+        game {
             bindings = <
 &kp Q  &kp W  &kp E  &kp R      &kp T        &kp Y    &kp U     &kp I      &kp O    &kp P
 &kp A  &kp S  &kp D  &kp F      &kp G        &kp H    &kp J     &kp K      &kp L    &kp SEMI
